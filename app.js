@@ -1,5 +1,3 @@
-require('newrelic');
-
 const app = require("express")();
 const express = require('express')
 
@@ -14,3 +12,9 @@ app.use(express.static('public'))
 app.listen(PORT, () => {
   console.log(`App up at port ${PORT}`);
 });
+
+
+var http = require("http");
+setInterval(function() {
+    http.get("http://white-noise-google-assist.herokuapp.com");
+}, 600000); // every 10 minutes
